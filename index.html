@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>module-4-js</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    // const keyboard = [["q","w","e","r","t","y","u","i","o","p","[","]","\\"],
+    // ["a","s","d","f","g","h","j","k","l",";","\'"],
+    // ["z","x","c","v","b","n","m",",",".","/"]];
+
+    const alphabet = "qwertyuiop[]\\asdfghjkl;\'zxcvbnm,./";
+
+    // ВОЗВРАЩАЕТ МАСИВ КЛАВИАТУРНЫХ СТРОК
+    const addKeyboardLayout = (alphabet) => {
+      const keyboard = Array.from(alphabet);
+      return keyboard;
+    }
+
+    const row = addKeyboardLayout(alphabet);
+    console.log(row);
+
+    // ВОЗВРАЩАЕТ ЛЮБУЮ БУКВУ ИЗ СТРОКИ МАСИВА
+    const getRandCharInRow = (row) => {
+      const random = row[Math.floor(Math.random() * row.length)];      const index = row.indexOf(random);
+      let length = 0;
+      if (index >= 0 && index <= 13){
+        length = 1;
+      }else if (index > 13 && index <=25 ){
+        length = 2;
+      }else {
+        length = 3;
+      }
+      return [random, index , length];
+    }
+    const rand = getRandCharInRow(row);
+    console.log(`Номер строки клавиатуры "${rand[2]}", получаем случайную букву "${rand[0]}"`);
+
+    // ВОЗВРАЩАЕТ ЛЮБУЮ БУКВУ ИЗ АЛФАВИТА
+    function getRandCharInAlph() {
+      const possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+      const text = possible.charAt(Math.floor(Math.random() * possible.length));
+      return text;
+    }
+
+    console.log(`Возвращает случайную букву из всего алфавита ${getRandCharInAlph()}`);
+    </script>
+  </body>
+</html>
